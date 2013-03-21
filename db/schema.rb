@@ -11,9 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130320230136) do
-
-# Could not dump table "prototypes" because of following StandardError
-#   Unknown type 'file_field' for column 'design'
+ActiveRecord::Schema.define(:version => 20130321055328) do
 
 end
