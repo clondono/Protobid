@@ -1,9 +1,8 @@
-<h1>Listing prototypes</h1>
+<h1>Your Prototypes</h1>
 
 <table>
   <tr>
     <th>Material</th>
-    <th>Units</th>
     <th>Tolerance</th>
     <th>Volume</th>
     <th>Comment</th>
@@ -15,9 +14,9 @@
 <% @prototypes.each do |prototype| %>
   <tr>
     <td><%= prototype.material %></td>
-    <td><%= prototype.units %></td>
     <td><%= prototype.tolerance %></td>
     <td><%= prototype.volume %></td>
+    <td><%= prototype.units %></td>
     <td><%= prototype.comment %></td>
     <td><%= link_to 'Show', prototype %></td>
     <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
