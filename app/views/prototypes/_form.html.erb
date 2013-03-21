@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :design %><br />
-    <%= f.file_field :attachment %>
+    <%= f.label :material %>
+        <%= f.file_field :attach%>
   </div>
+
   <div class="field">
-    <%= f.label :material %><br />
-    <%= f.select(:material, options_for_select([['aluminum', 1], ['steel',2],['wood',3],['bronze',4]],4)) %>
+    <%= f.label :material %>
+        <%= f.select(:material, options_for_select(["soft metals", "aluminum", "steel", "wood", "plastic"])) %>
   </div>
   <div class="field">
     <%= f.label :tolerance %><br />
@@ -26,7 +27,8 @@
   <div class="field">
     <%= f.label :volume %><br />
     <%= f.text_field :volume %>
-    <%= f.select(:units, options_for_select([['m^3', 1], ['cm^3',2],['mm^3',3]],3)) %>
+    <%= f.select(:units, options_for_select(["mm^3", "cm^3", "m^3"])) %>
+
   </div>
   <div class="field">
     <%= f.label :comment %><br />
