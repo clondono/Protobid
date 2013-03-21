@@ -1,0 +1,85 @@
+    	board.addEventListener('move',function (e) {
+    		var dets=e.details;
+			var rows=$("#pieces").children().children();
+			var mover= $(rows[dets.fromRow].children[dets.fromCol]).children().clone(); 
+			$(rows[dets.fromRow].children[dets.fromCol]).children().remove();
+
+			// animation
+			mover.css('width',squareLen*.75);
+			mover.css('height',squareLen*.75);
+			
+			mover.addClass('movee');
+			var divCont=document.createElement("div");
+			$(divCont).addClass('divCont');
+			$(divCont).prepend(mover);
+			$("#animation").prepend(divCont);
+			$(divCont).css('position',"absolute");
+
+			$(mover).css('position',"absolute");
+			$(mover).css('top',((dets.fromRow+.1)*squareLen)+"px");
+			$(mover).css('left',((dets.fromCol+.1)*squareLen)+"px");
+
+			$(divCont).animate({'left':"+="+((dets.fromRow-dets.toRow)*squareLen)+"px",'top':"+="+((dets.fromCol-dets.toCol)*squareLen)+"px"},1000, function(){
+			$(rows[dets.toRow].children[dets.toCol]).append(whichPiece(dets.checker));			
+			$("#animation").children().remove();
+			});
+
+			var arrow =document.getElementById('arrows');
+			var arrowCtx=arrow.getContext('2d');
+			arrowCtx.clearRect(0,0,arrow.width,arrow.height);
+
+			var x1=(dets.fromCol+.5)*squareLen;
+			var x2=(dets.toCol+.5)*squareLen;
+			var y1=(dets.fromRow+.5)*squareLen;
+			var y2=(dets.toRow+.5)*squareLen;
+			
+			//line
+			arrowCtx.beginPath();
+  			arrowCtx.moveTo(x1,y1);
+  			arrowCtx.lineTo(x2,y2);
+  			arrowCtx.strokeStyle = "Yellow"
+  			arrowCtx.stroke();
+  			arrowCtx.closePath();
+  			
+  			//triangle
+  			arrowCtx.beginPath();
+  			arrowCtx.fillStyle = "Yellow"
+
+  			if (x1<x2){
+  				if(y1<y2){
+  					//x1<x2  y1<y2
+  					//DONE!!!
+  					arrowCtx.moveTo(x2-.05*squareLen,y2-.15*squareLen);
+					arrowCtx.lineTo(x2,y2);
+					arrowCtx.lineTo(x2-.15*squareLen,y2-.05*squareLen);
+  				}
+  				else{
+  					//x1<x2  y1>y2
+  					arrowCtx.moveTo(x2-.15*squareLen,y2+.05*squareLen);
+					arrowCtx.lineTo(x2,y2);
+					arrowCtx.lineTo(x2-.05*squareLen,y2+.15*squareLen);
+					
+  				}
+  			}
+  			else{
+  				if(y1<y2){
+  					//x1>x2  y1<y2
+
+  					arrowCtx.moveTo(x2+.05*squareLen,y2-.15*squareLen);
+					arrowCtx.lineTo(x2,y2);
+					arrowCtx.lineTo(x2+.15*squareLen,y2-.05*squareLen);
+  				}
+  				else{
+  					//x1>x2  y1>y2
+					//DONE!
+  					arrowCtx.moveTo(x2+.05*squareLen,y2+.15*squareLen);
+					arrowCtx.lineTo(x2,y2);
+					arrowCtx.lineTo(x2+.15*squareLen,y2+.05*squareLen);
+  				}
+  			}
+
+			arrowCtx.fill();
+			arrowCtx.stroke();
+			//arrowCtx.rotate(Math.PI/4);
+
+			},true);

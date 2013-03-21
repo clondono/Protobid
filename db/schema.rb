@@ -11,16 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319220416) do
+ActiveRecord::Schema.define(:version => 20130320230136) do
 
-  create_table "prototypes", :force => true do |t|
-    t.string   "design"
-    t.text     "material"
-    t.text     "tolerance"
-    t.string   "volume"
-    t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+# Could not dump table "prototypes" because of following StandardError
+#   Unknown type 'file_field' for column 'design'
 
 end
