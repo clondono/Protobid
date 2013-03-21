@@ -1,5 +1,6 @@
 class Prototype < ActiveRecord::Base
-	attr_accessible :attachment, :material, :tolerance, :volume, :units, :comment, :attachment_file_name
+
+	attr_accessible :material, :design, :tolerance, :volume, :comment, :units, :attachment
 	validates :volume, :numericality => { :greater_than_or_equal_to => 0.0}
 
 #paperclip

@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(:version => 20130321063157) do
     t.text     "tolerance"
     t.float    "volume"
     t.text     "comment"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
 end
