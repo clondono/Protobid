@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Protobid</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+	  <title>
+	  	Protobid | <%=yield(:title) %>
+	  </title>
+	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div>
+			<div style ="display:inline-block">
+				<%= image_tag("logo.png", :height => '75', :width => '200')%>				
+				<h3 style="margin:0px;padding:0px">Get it built.</h3>
+				<h3 style="margin:0px;padding:0px">Fast.</h3>
+			</div>
+			<div style ="display:inline-block;text-align:right;align:center; margin:auto">
+				<p >
+					What if your business could quickly get the prototypes they need?</br>
 
-<%= yield %>
+					For the most efficient prices, but with the highest quality! </br>
 
-</body>
+					That's our dream here at ProtoBid.
+				</p>
+			</div>
+			<div id="login">
+			</div>
+		</div>
+
+		<div id="navBar">
+
+			<%= link_to "Home", "/browse/home" %>
+			<%= link_to "About Us", "/browse/about" %>
+			<%= link_to "Terms of Service", "/browse/terms" %>
+		</div>
+
+
+		<div>
+			<%= yield %>
+		</div>
+	</body>
 </html>

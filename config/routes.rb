@@ -1,4 +1,10 @@
 Protobid::Application.routes.draw do
+  get "browse/home"
+
+  get "browse/about"
+
+  get "browse/terms"
+
   resources :prototypes
 
   get "home/index"
@@ -52,7 +58,7 @@ Protobid::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  root :to => 'browse#home'
 
   # See how all your routes lay out with "rake routes"
 
