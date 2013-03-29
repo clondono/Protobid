@@ -1,3 +1,56 @@
-// Place all the styles related to the browse controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#about{
+	background-color: rgb(197,50,0);
+	width:1018px;
+	height:864px;
+	float:left;
+	margin:0px;
+	padding:0px;
+	color:white;
+}
+
+#about_side{
+	width:269px;
+	height:864px;
+	float:left;
+	background-color: red;
+}
+
+#about_main{
+	float:left;
+	padding-left: 20px;
+	display:block;
+}
+
+#about_header{
+	float:left;
+	display:block;
+}
+
+#about_team{
+	float:left;
+	display:inline;
+}
+
+#about_footer{
+	background-color: white;
+	width:1018px;
+	float:left;
+}
+
+.about_profile{
+	float:left;
+	width:700px;
+	display:inline;
+}
+
+.profile_img{
+	padding-top: 3px;
+	padding-bottom:10px;
+	width:180px;
+	float:left;
+}
+
+.profile_txt{
+	width:520px;
+	float:left;
+}

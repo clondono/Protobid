@@ -7,20 +7,26 @@
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
-			<div id="header_bar">
+		<div id="header_bar">
 			<div style ="display:inline-block">
 				<%= image_tag("logo.png", :height => '75', :width => '200')%>				
 				<h3 style="margin:0px;padding:0px">Get it built.</h3>
 				<h3 style="margin:0px;padding:0px">Fast.</h3>
 			</div>
-			<div style ="display:inline-block; text-align:right; margin: 0px auto; float:center">
-				<p >
-					What if your business could quickly get the prototypes they need?</br>
-
-					For the most efficient prices, but with the highest quality! </br>
-
-					That's our dream here at ProtoBid.
-				</p>
+			<div class="nav-holder">
+				<div  id="main_nav" >
+					<ul>
+						<li>
+							<a href="/browse/home" class="nav_item">Home</a>
+						</li>
+						<li>
+							<a href="/browse/about" class="nav_item">About Us</a>
+						</li>
+						<li>
+							<a href="/browse/terms" class="nav_item">Terms of Service</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div id="login">
 				<% if user_signed_in? %>
@@ -40,23 +46,6 @@
 		</div>
 	</head>
 	<body>
-
-		<div class="nav-holder">
-			<div class="nav-item" id="main_nav" >
-				<ul>
-					<li>
-						<%= link_to "Home", "/browse/home" %>
-					</li>
-					<li>
-					<%= link_to "About Us", "/browse/about" %>
-					</li>
-					<li>
-					<%= link_to "Terms of Service", "/browse/terms" %>
-					</li>
-				</ul>
-			</div>
-		</div>
-
 		<div>
 			<%= yield %>
 		</div>
