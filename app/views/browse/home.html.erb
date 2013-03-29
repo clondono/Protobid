@@ -1,5 +1,12 @@
 <% provide(:title, "Home") %>
 </br>
-<%= link_to "My Prototypes", prototypes_path %>
-
-<p>Find me in app/views/browse/home.html.erb</p>
+<% if user_signed_in? %>
+	<h2>
+		Welcome, (User Name)
+	</h2>
+	<%= link_to "My Prototypes", prototypes_path %>
+<% else%>
+	<p>
+		Welcome! Please sign in to explore Protobid :)
+	</p>
+<%end %>
