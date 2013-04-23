@@ -3,12 +3,17 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'rails', '3.2.1'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-
+gem "binding_of_caller"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
 	gem 'sqlite3'
 end
+
+group :development do
+  gem "better_errors"
+end
+
 group :production do 
 	gem 'pg'
 end

@@ -11,7 +11,9 @@
     <th></th>
   </tr>
 
-<% @prototypes.each do |prototype| %>
+
+
+<% current_user.prototypes.each do |prototype| %>
   <tr>
     <td><%= prototype.material %></td>
     <td><%= prototype.tolerance %></td>

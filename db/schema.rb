@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417112359) do
+ActiveRecord::Schema.define(:version => 20130422180459) do
 
   create_table "prototypes", :force => true do |t|
     t.string   "material"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130417112359) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -40,6 +41,8 @@ ActiveRecord::Schema.define(:version => 20130417112359) do
     t.string   "last_sign_in_ip"
     t.string   "company"
     t.string   "usertype"
+    t.string   "firstname"
+    t.string   "lastname"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

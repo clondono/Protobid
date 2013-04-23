@@ -3,10 +3,10 @@
 
 <div class="pages">
 	<% if user_signed_in? %>
-	<script>console.log(current_user.email);</script>
 		<h2>
-			Welcome, <%= yield current_user.email %>
+			Welcome, <%= current_user.firstname %> <%= current_user.lastname%>
 		</h2>
+		
 		<%= link_to "My Prototypes", prototypes_path %>
 	<% else%>
 		<p>

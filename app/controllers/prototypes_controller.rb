@@ -40,8 +40,14 @@ class PrototypesController < ApplicationController
   # POST /prototypes
   # POST /prototypes.json
   def create
-    @prototype = Prototype.new(params[:prototype])
 
+    flash.now[:notice] = "NOTICE FLASH"
+    @user = current_user
+    @prototype = @user.prototypes.create(params[:prototype])
+
+
+    #@prototype = Prototype.new(params[:prototype])
+ 
     respond_to do |format|
       if @prototype.save
         format.html { redirect_to @prototype, notice: 'Prototype was successfully created.' }
