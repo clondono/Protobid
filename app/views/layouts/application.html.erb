@@ -19,16 +19,17 @@
 
 	</head>
 	<body>
-		<div class="row-fluid" id="header_bar">
+		<div class="wrapper">
+		<div class="row-fluid" id="header_bar" style="height:150" >
 		<div class="span2"></div>
-			<div class="span7" style="height:150; margin:0px">
-				<div>
-				<%= image_tag("logo.png", :height => '100', :width => '500')%>
+			<div class="span7" style="height:150px; margin:0px">
+				<div style="height:150px">
+				<%= image_tag("logo.png", :height => '150px', :width => '400')%>
 				</div>
 			</div>
 			<div class="span3">
 				<div id="login" class="navbar nav ">
-					<ul class="nav navbar-inner">
+					<ul class="nav navbar-inner" style="float:right">
 						<% if user_signed_in? %>
 							<li class="nav  logging">
 						  		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>       
@@ -56,12 +57,17 @@
 							<li style="margin-left:12%">
 								<a href="/browse/home" class="nav_item nav">Home</a>
 							</li>
-							<li>
-								<a href="/browse/about" class="nav_item nav">About Us</a>
-							</li>
-							<li>
-								<a href="/browse/terms" class="nav_item nav">Terms of Service</a>
-							</li>
+							<% if user_signed_in? %>
+								<li>
+									<a href="/prototypes" class="nav_item nav">Prototypes</a>
+								</li>
+								<li>
+									<a href="/browse/home" class="nav_item nav">Suppliers</a>
+								</li>
+								<li>
+									<a href="/browse/home" class="nav_item nav">My Profile</a>
+								</li>
+							<% end %>
 						</ul>
 					</div>
 				</div>
@@ -78,5 +84,12 @@
 				</div>
 			</div>
 		</div>
+		<div class="push"><!--//--></div>
+		</div>
+		<footer style="background-color:white">
+      <div class="container">
+        <p>@Protobid Ventures 2013.  <a href="/browse/about" class="nav_item nav">About Us</a> | <a href="/browse/terms" class="nav_item nav">Terms of Service</a></p>
+      </div>
+    </footer>
 	</body>
 </html>
