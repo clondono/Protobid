@@ -11,10 +11,11 @@
  *= require_self
  *= require_tree .
 */
+
+
 #header_bar{
-	background-color: rgb(18, 56, 112);
-	color:#fff;
-	padding-left: 125px;
+	background-color: white;
+	margin:0px;
 }
 #login{
 	display:inline-block;
@@ -23,38 +24,11 @@
 
 }
 
-.nav-holder{
-
-}
 #main_nav{
-	margin-left: 40%;
+	background-color: #004779;
+	left:0;
+	right:0;
+	margin:0px;
 }
 
-ul{
-list-style-type:none;
-margin:0;
-padding:0;
-display:inline;
-}
-li{
-	display:inline;
-	float:left;
-}
-.nav_item{
-	display:block;
-	width:120px;
-}
 
-a{
-	text-decoration: none;
-	color:black;
-}
-a:link{
-	color:black;
-}
-a:visited{
-	color:black;
-}
-a:hover{
-	background-color: black
-}

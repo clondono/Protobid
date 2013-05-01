@@ -5,53 +5,77 @@
 	  	Protobid | <%=yield(:title) %>
 	  </title>
 	  <%= stylesheet_link_tag    "application", :media => "all" %>
+	  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
+	  <%= stylesheet_link_tag    "bootstrap_and_overrides", :media => "all" %>
+
+
+	  <%= javascript_include_tag "bootstrap" %>
 	  <%= javascript_include_tag "application" %>
+
+
 	  <%= csrf_meta_tags %>
+	  <%= favicon_link_tag "favicon.ico" %>
+	  <script src="http://code.jquery.com/jquery.js"></script>
 
 	</head>
 	<body>
-
-		<div id="header_bar">
-			<div style ="display:inline-block">
-				<%= image_tag("logo.png", :height => '75', :width => '200')%>				
-				<h3 style="margin:0px;padding:0px">Get it built.</h3>
-				<h3 style="margin:0px;padding:0px">Fast.</h3>
+		<div class="row-fluid" id="header_bar">
+		<div class="span2"></div>
+			<div class="span7" style="height:150; margin:0px">
+				<div>
+				<%= image_tag("logo.png", :height => '100', :width => '500')%>
+				</div>
 			</div>
-			<div class="nav-holder">
-				<div  id="main_nav" >
-					<ul>
-						<li>
-							<a href="/browse/home" class="nav_item">Home</a>
-						</li>
-						<li>
-							<a href="/browse/about" class="nav_item">About Us</a>
-						</li>
-						<li>
-							<a href="/browse/terms" class="nav_item">Terms of Service</a>
-						</li>
+			<div class="span3">
+				<div id="login" class="navbar nav ">
+					<ul class="nav navbar-inner">
+						<% if user_signed_in? %>
+							<li class="nav  logging">
+						  		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>       
+						  	</li>
+						<% else %>
+						  	<li class="nav logging">
+						  		<%= link_to('Login', new_user_session_path)  %>  
+							</li>
+							<li class="divider"></li>
+							<li class="nav logging">
+		  						<%= link_to('Sign up', new_user_registration_path)  %>
+		  					</li>
+						<% end %>
 					</ul>
 				</div>
 			</div>
-			<div id="login">
-				<% if user_signed_in? %>
-					<li>
-				  		<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-				  	</li>
-				<% else %>
-				  	<li>
-				  		<%= link_to('Login', new_user_session_path)  %>  
-					</li>
-						or
-					<li>
-  						<%= link_to('Sign up', new_user_registration_path)  %>
-  					</li>
-				<% end %>
-			</div>
-		</div>
 
-		<div>
-			<div style="padding-left:125px">
-				<%= yield %>
+		</div>
+		
+		<div class="row-fluid">
+			<div class="span12">
+				<div>
+					<div  id="main_nav" class="navbar nav">
+						<ul class="nav navbar-inner" style="width:100%">
+							<li style="margin-left:12%">
+								<a href="/browse/home" class="nav_item nav">Home</a>
+							</li>
+							<li>
+								<a href="/browse/about" class="nav_item nav">About Us</a>
+							</li>
+							<li>
+								<a href="/browse/terms" class="nav_item nav">Terms of Service</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	
+		<div class="row-fluid">
+			<div class="span2" id="side-bar">
+			</div>
+			<div class="span10" style="margin:0px;padding:0px">
+				<div >
+					<%= yield %>
+				</div>
 			</div>
 		</div>
 	</body>

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
 gem 'devise'
 gem 'rails', '3.2.1'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
