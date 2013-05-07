@@ -1,14 +1,13 @@
 Protobid::Application.routes.draw do
-  devise_for :users
 
   devise_for :users
-
   get "browse/home"
 
   get "browse/about"
 
   get "browse/terms"
-
+  get "browse/suppliers"
+  
   resources :prototypes
 
   get "home/index"

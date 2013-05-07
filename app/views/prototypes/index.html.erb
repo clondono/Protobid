@@ -1,32 +1,68 @@
-<h1>Your Prototypes</h1>
-
-<table>
-  <tr>
-    <th>Material</th>
-    <th>Tolerance</th>
-    <th>Volume</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if user_signed_in? %>
+  <%if current_user.niche=='Engineer'%>
+    <h1>Your Prototypes</h1>
 
 
+    <div class="btn" style=" margin-bottom:10px"><%= link_to 'New Prototype', new_prototype_path %>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+      <th>Prototypes</th>
+        <th>Material</th>
+        <th>Tolerance</th>
+        <th>Volume</th>
+        <th>Comment</th>
+        <th></th>
+      </tr>
 
-<% current_user.prototypes.each do |prototype| %>
-  <tr>
-    <td><%= prototype.material %></td>
-    <td><%= prototype.tolerance %></td>
-    <td><%= prototype.volume %></td>
-    <td><%= prototype.units %></td>
-    <td><%= prototype.comment %></td>
-    <td><%= link_to 'Show', prototype %></td>
-    <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
-    <td><%= link_to 'Destroy', prototype, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+
+
+    <% current_user.prototypes.each do |prototype| %>
+      <tr>
+      <td><%= image_tag("logo.png", :height => '100px', :width => '100px')%></td>
+        <td><%= prototype.material %></td>
+        <td><%= prototype.tolerance %></td>
+        <td><%= prototype.volume %> <%= prototype.units %></td>
+        <td><%= prototype.comment %></td>
+        <td><%= link_to 'Show', prototype %></td>
+        <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+  
+  <% else%>
+  
+    <h1>Prototypes</h1>
+    <table class="table table-bordered">
+      <tr>
+      <th>Thumbnail</th>
+        <th>Company</th>
+        <th>Material</th>
+        <th>Tolerance</th>
+        <th>Volume</th>
+        <th>Comment</th>
+        <th></th>
+      </tr>
+
+
+
+    <% @prototypes.each do |prototype| %>
+      <tr>
+        <td><%= image_tag("logo.png", :height => '100px', :width => '100px')%></td>
+        <td><%= User.find_for_authentication(:id => prototype.user_id).company
+          %></td>
+        <td><%= prototype.material %></td>
+        <td><%= prototype.tolerance %></td>
+        <td><%= prototype.volume %> <%= prototype.units %></td>
+        <td><%= prototype.comment %></td>
+        <td><a href="/browse/home">add</a></th>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+  <% end %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Prototype', new_prototype_path %>

@@ -1,13 +1,11 @@
 <% provide(:title, "Home") %>
 </br>
 
-<div class="pages">
+<div class="pages midsy">
 	<% if user_signed_in? %>
 		<h2>
 			Welcome, <%= current_user.firstname %> <%= current_user.lastname%>
 		</h2>
-		
-		<%= link_to "My Prototypes", prototypes_path %>
 	<% else%>
 		<p>
 			Welcome! Please sign in to explore Protobid :)

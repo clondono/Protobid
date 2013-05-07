@@ -58,15 +58,54 @@
 								<a href="/browse/home" class="nav_item nav">Home</a>
 							</li>
 							<% if user_signed_in? %>
-								<li>
-									<a href="/prototypes" class="nav_item nav">Prototypes</a>
-								</li>
-								<li>
-									<a href="/browse/home" class="nav_item nav">Suppliers</a>
-								</li>
-								<li>
-									<a href="/browse/home" class="nav_item nav">My Profile</a>
-								</li>
+								<%if current_user.niche=='Engineer'%>
+									<li class= "dropdown">
+
+										<a  class="dropdown-toggle" data-target="#" data-toggle="dropdown" href="/prototypes" class="nav_item nav">Prototypes</a>
+
+										<ul class="dropdown-menu" role ="menu" aria-labelledby="dropdownMenu">
+											<li>
+												<a href="/prototypes" class="nav_item nav">Public Prototypes</a>
+											</li>
+											<li>
+												<a href="/prototypes" class="nav_item nav">Open Prototypes</a>
+											</li>
+											<li>
+												<a href="/prototypes" class="nav_item nav">My Prototypes</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="/browse/home" class="nav_item nav">Suppliers</a>
+									</li>
+									<li>
+										<a href="/browse/home" class="nav_item nav">My Profile</a>
+									</li>
+								<% else %>
+									<li class= "dropdown">
+
+										<a  class="dropdown-toggle" data-target="#" data-toggle="dropdown" href="/prototypes" class="nav_item nav">Prototypes</a>
+
+										<ul class="dropdown-menu" role ="menu" aria-labelledby="dropdownMenu">
+											<li>
+												<a href="/prototypes" class="nav_item nav">Open Prototypes</a>
+											</li>
+											<li>
+												<a href="/prototypes" class="nav_item nav">Current Prototypes</a>
+											</li>
+											<li>
+												<a href="/prototypes" class="nav_item nav">Past Prototypes</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="/browse/home" class="nav_item nav">Sources</a>
+									</li>
+									<li>
+										<a href="/browse/home" class="nav_item nav">My Profile</a>
+									</li>
+
+								<%end%>	
 							<% end %>
 						</ul>
 					</div>
@@ -79,7 +118,7 @@
 			<div class="span2" id="side-bar">
 			</div>
 			<div class="span10" style="margin:0px;padding:0px">
-				<div >
+				<div style="margin:0px">
 					<%= yield %>
 				</div>
 			</div>

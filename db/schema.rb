@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422180459) do
+ActiveRecord::Schema.define(:version => 20130501211245) do
 
   create_table "prototypes", :force => true do |t|
     t.string   "material"
@@ -43,6 +43,12 @@ ActiveRecord::Schema.define(:version => 20130422180459) do
     t.string   "usertype"
     t.string   "firstname"
     t.string   "lastname"
+    t.string   "type"
+    t.string   "country"
+    t.string   "state"
+    t.string   "prefix"
+    t.string   "role"
+    t.string   "niche"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
