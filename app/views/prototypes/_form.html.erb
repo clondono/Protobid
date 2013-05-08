@@ -11,6 +11,15 @@
     </div>
   <% end %>
 
+  <div style="float:left; margin-right:5px">
+  <%= label :open, 'Public' %>
+  <%= f.radio_button :open, true %>
+  </div>
+  <div>
+  <%= label :open, 'Private' %>
+  <%= f.radio_button :open, false %>
+  </div>
+
   <div class="field">
     <%= f.file_field :attachment%>
   </div>

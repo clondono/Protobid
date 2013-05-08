@@ -5,7 +5,18 @@
   <%= devise_error_messages! %>
 
 
+  <%= f.label "Profile Type" %>
+  <div style="float:left; margin-right:5px">
 
+
+  <%= label :niche, 'Vendor' %>
+  <%= f.radio_button :niche, "Vendor"%>
+  </div>
+  <div>
+  <%= label :niche, 'Engineer' %>
+  <%= f.radio_button :niche, "Engineer"%>
+  </div>
+  
   <div style="float:left; margin-right:5px"><%= f.label "Prefix" %>
   <%= f.select(:prefix, options_for_select(["Mr.", "Mrs.", "Ms."])) %>
   
@@ -33,17 +44,7 @@
   <div><%= f.label "Company name" %>
   <%= f.text_field :company  %></div>
 
-  <%= f.label "Profile Type" %>
-  <div style="float:left; margin-right:5px">
 
-
-  <%= label :niche, 'Vendor' %>
-  <%= f.radio_button :niche, "Vendor"%>
-  </div>
-  <div>
-  <%= label :niche, 'Engineer' %>
-  <%= f.radio_button :niche, "Engineer"%>
-  </div>
   </br>
 
   <div><%= f.submit "Sign up" %></div>

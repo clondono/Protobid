@@ -49,16 +49,18 @@
 
 
     <% @prototypes.each do |prototype| %>
-      <tr>
-        <td><%= image_tag("logo.png", :height => '100px', :width => '100px')%></td>
-        <td><%= User.find_for_authentication(:id => prototype.user_id).company
-          %></td>
-        <td><%= prototype.material %></td>
-        <td><%= prototype.tolerance %></td>
-        <td><%= prototype.volume %> <%= prototype.units %></td>
-        <td><%= prototype.comment %></td>
-        <td><a href="/browse/home">add</a></th>
-      </tr>
+      <% if prototype.open==true %>
+        <tr>
+          <td><%= image_tag("logo.png", :height => '100px', :width => '100px')%></td>
+          <td><%= User.find_for_authentication(:id => prototype.user_id).company
+            %></td>
+          <td><%= prototype.material %></td>
+          <td><%= prototype.tolerance %></td>
+          <td><%= prototype.volume %> <%= prototype.units %></td>
+          <td><%= prototype.comment %></td>
+          <td><a href="/browse/home">add</a></th>
+        </tr>
+      <% end %>
     <% end %>
     </table>
 

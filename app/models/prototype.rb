@@ -5,7 +5,7 @@ class Prototype < ActiveRecord::Base
 	def user
 		user
 	end
-	attr_accessible :material, :design, :tolerance, :volume, :comment, :units, :attachment
+	attr_accessible :material, :design, :tolerance, :volume, :comment, :units, :attachment, :open
 	validates :volume, :numericality => { :greater_than_or_equal_to => 0.0}
 
 #paperclip

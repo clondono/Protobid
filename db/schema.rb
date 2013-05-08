@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501211245) do
+ActiveRecord::Schema.define(:version => 20130508174908) do
 
   create_table "prototypes", :force => true do |t|
     t.string   "material"
@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(:version => 20130501211245) do
     t.text     "tolerance"
     t.float    "volume"
     t.text     "comment"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "user_id"
+    t.boolean  "open",                    :default => true
   end
 
   create_table "users", :force => true do |t|
