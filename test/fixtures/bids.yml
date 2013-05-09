@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vendorid: 1
+  prototypeid: 1
+  cost: 
+  time: MyString
+  status: MyString
+
+two:
+  vendorid: 1
+  prototypeid: 1
+  cost: 
+  time: MyString
+  status: MyString

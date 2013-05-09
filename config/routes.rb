@@ -1,5 +1,6 @@
 Protobid::Application.routes.draw do
 
+
   devise_for :users
   get "browse/home"
 
@@ -9,6 +10,7 @@ Protobid::Application.routes.draw do
   get "browse/suppliers"
   
   resources :prototypes
+  resources :bids
 
   get "home/index"
 

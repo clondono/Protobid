@@ -1,0 +1,26 @@
+  <h1>Your Bids</h1>
+
+</div>
+    <table class="table table-bordered">
+      <tr>
+      <th>Bid</th>
+        <th>Creator</th>
+        <th>price</th>
+        <th>Deadline</th>
+      </tr>
+
+
+
+    <% @bids.each do |bid| %>
+      <% if bid.vendorid==current_user.id %>
+        <tr>
+          <td><%= image_tag("logo.png", :height => '100px', :width => '100px')%></td>
+          <td><%= User.find(Prototype.find(bid.prototypeid).user_id).company%></td>
+          <td>$<%= bid.cost %></td>
+          <td><%= bid.time%> weeks</td>
+        </tr>
+      <% end %>
+    <% end %>  
+    </table>
+
+

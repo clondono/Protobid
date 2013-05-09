@@ -58,7 +58,7 @@
           <td><%= prototype.tolerance %></td>
           <td><%= prototype.volume %> <%= prototype.units %></td>
           <td><%= prototype.comment %></td>
-          <td><a href="/browse/home">add</a></th>
+          <td><%= link_to 'Bid', new_bid_path(:vendorid => current_user.id, :prototypeid => prototype.id ) %></th>
         </tr>
       <% end %>
     <% end %>
